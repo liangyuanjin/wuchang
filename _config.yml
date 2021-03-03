@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 无常
 subtitle:
 description:
 keywords:
-author: John Doe
-language:
+author: 无常
+language: zh-CN
 timezone:
 
 # URL
@@ -40,10 +40,10 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: flase
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)

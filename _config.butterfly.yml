@@ -5,7 +5,6 @@ menu:
   分类: /categories/ || fas fa-folder-open
   友联: /link/ || fas fa-link
 
-
 rss: /atom.xml
 
 # Content
@@ -40,6 +39,23 @@ google_plus:
 fb_admins:
 fb_app_id:
 
-social:
-  fab fa-github: https://github.com/xxxxx || Github
-  fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+# 代码高亮
+highlight_theme: light
+# 代码复制支持
+highlight_copy: true
+#代码框不可展开，需点击'>'打开
+highlight_shrink: true
+# 代码换行
+code_word_wrap: true
+
+avatar:
+  img: /img/avatar.jpeg
+  effect: false # 頭像會一直轉圈
+
+index_img: /img/banner.JPG
+
+# 社交图片
+CDN_USE:
+  css:
+    - https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
+    - https://use.fontawesome.com/releases/v5.8.1/css/all.css
