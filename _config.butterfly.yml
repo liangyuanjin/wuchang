@@ -40,7 +40,7 @@ fb_admins:
 fb_app_id:
 
 # 代码高亮
-highlight_theme: light
+highlight_theme: mac light
 # 代码复制支持
 highlight_copy: true
 #代码框不可展开，需点击'>'打开
@@ -48,14 +48,70 @@ highlight_shrink: true
 # 代码换行
 code_word_wrap: true
 
+# 头像
 avatar:
-  img: /img/avatar.jpeg
+  img: https://cdn.pixabay.com/photo/2020/12/27/12/07/sunrise-5863751_1280.png
   effect: false # 頭像會一直轉圈
 
-index_img: /img/banner.JPG
+# 顶部图
+index_img: https://cdn.pixabay.com/photo/2020/12/27/12/07/sunrise-5863751_1280.png
+
 
 # 社交图片
 CDN_USE:
   css:
     - https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
     - https://use.fontawesome.com/releases/v5.8.1/css/all.css
+
+social:
+  fab fa-github: https://github.com/xxxxx || Github
+  fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+
+# 相关文章
+related_post:
+  enable: true
+  limit: 6 #显示推荐文章数目
+
+# 博客年份
+since: 2018
+
+# 个人信息位置
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true # 手機頁面（ 顯示寬度 < 768px ）是否顯示aside內容
+  position: left # left or right
+  card_author:
+    enable: true
+    description:
+    button:
+      enable: true
+      icon: fab fa-github
+    text: Github
+    link: https://github.com/jerryc127/hexo-theme-butterfly
+  card_announcement:
+    enable: true
+    content: This is my Blog
+  card_recent_post:
+    enable: true
+    limit: 5 # if set 0 will show all
+    sort: date # date or updated
+  card_categories:
+    enable: true
+    limit: 8 # if set 0 will show all
+    expand: none # none/true/false
+  card_tags:
+    enable: true
+    limit: 40 # if set 0 will show all
+    color: false
+  card_archives:
+    enable: true
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true

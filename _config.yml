@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 无常
-subtitle:
-description:
-keywords:
-author: 无常
+title: WuChang
+subtitle: 彩条
+description: 闲谈莫伦人非,静坐常思己过
+keywords: 如不哦不能再
+author: WuChang
 language: zh-CN
-timezone:
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
