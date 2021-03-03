@@ -44,7 +44,7 @@ highlight_theme: mac light
 # 代码复制支持
 highlight_copy: true
 #代码框不可展开，需点击'>'打开
-highlight_shrink: true
+highlight_shrink: false
 # 代码换行
 code_word_wrap: true
 
@@ -64,8 +64,8 @@ CDN_USE:
     - https://use.fontawesome.com/releases/v5.8.1/css/all.css
 
 social:
-  fab fa-github: https://github.com/xxxxx || Github
-  fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+  fab fa-github: https://github.com/liangyuanjin || Github
+  fas fa-envelope: https://mail.163.com/ || Email
 
 # 相关文章
 related_post:
@@ -115,3 +115,45 @@ aside:
     enable: true
     post_count: true
     last_push_date: true
+
+
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+theme_color:
+  enable: true
+  main: "#49B1F5"
+  paginator: "#00c4b6"
+  button_hover: "#FF7242"
+  text_selection: "#00c4b6"
+  link_color: "#99a9bf"
+  meta_color: "#858585"
+  hr_color: "#A4D8FA"
+  code_foreground: "#F47466"
+  code_background: "rgba(27, 31, 35, .05)"
+  toc_color: "#00c4b6"
+  blockquote_padding_color: "#49b1f5"
+  blockquote_background_color: "#49b1f5"
+
+canvas_ribbon:
+  enable: false
+  size: 150
+  alpha: 0.6
+  zIndex: -1
+  click_to_change: false  #設置是否每次點擊都更換綵帶
+  mobile: false # false 手機端不顯示 true 手機端顯示
+
+
+# 主頁subtitle
+subtitle:
+  enable: true
+  # 打字效果
+  effect: true
+  # 循環或者只打字一次
+  loop: false
+  source: false
+  sub:
+    - 世界上任何书籍都不能带给你好运,但它们都让你悄悄成为你自己 —— 赫尔曼.黑塞
+    - 有事做有所期待，日子就是幸福的
