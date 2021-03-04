@@ -122,6 +122,7 @@ busuanzi:
   site_pv: true
   page_pv: true
 
+# 自定义主题色
 theme_color:
   enable: true
   main: "#49B1F5"
@@ -137,8 +138,9 @@ theme_color:
   blockquote_padding_color: "#49b1f5"
   blockquote_background_color: "#49b1f5"
 
+# 彩条
 canvas_ribbon:
-  enable: false
+  enable: true
   size: 150
   alpha: 0.6
   zIndex: -1
@@ -157,3 +159,10 @@ subtitle:
   sub:
     - 世界上任何书籍都不能带给你好运,但它们都让你悄悄成为你自己 —— 赫尔曼.黑塞
     - 有事做有所期待，日子就是幸福的
+
+#  搜索
+local_search:
+  enable: true
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
