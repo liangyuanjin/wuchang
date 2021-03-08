@@ -3,46 +3,56 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: WuChang
-subtitle:
-description: 毕竟几人真鹿, 不知终日梦为鱼
-keywords:
-author: WuChang
-language: zh-CN
-timezone:
+title: ❤ WuChang  # 博客标题
+subtitle: 记录关于生活的一切 ❤  # 博客副标题
+description: 毕竟几人真鹿, 不知终日梦为鱼  # 博客的简述
+keywords: Python,Golang  # 关键字
+author: Liang Yuan Jin  # 你的名字
+language: zh-CN   # 网站使用的语言
+timezone: Asia/Shanghai  # 时区
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://wuchang.online
+url: http://wuchang.online  # 文章版权信息哪里显示的URL
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
+
 
 # Directory
-source_dir: source
-public_dir: public
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
+source_dir: source  # 资源文件夹
+public_dir: public  # 公共文件夹
+tag_dir: tags   # 标签文件夹
+archive_dir: archives  # 归档文件夹
+category_dir: categories  # 分类文件夹
+code_dir: downloads/code  # Include code 文件夹
+i18n_dir: :lang  # 国际化（i18n）
+skip_render:  # 跳过指定文件的渲染
 
 # Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-future: true
-highlight:
+new_post_name: :title.md # File name of new posts # 新文章的文件名称
+default_layout: post  # 预设布局
+titlecase: false # Transform title into titlecase  把标题转换为单词首字母大写
+external_link: true # Open external links in new tab 在新标签页打开链接
+filename_case: 0 # 把文件名称转换为 (1) 小写 或 (2) 大写
+render_drafts: false  # 显示为草稿
+post_asset_folder: false  # #启动 Asset 文件夹，为 true 时，每次建立文件时，Hexo 会自动建立一个与文章同名的文件夹
+relative_link: false # 把链接改为与根目录的相对位置
+future: true  # 显示未来的文章
+highlight:  # 代码块的设置
   enable: true
-  line_number: flase
+  line_number: true
   auto_detect: false
   tab_replace:
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
