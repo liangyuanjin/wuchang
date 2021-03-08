@@ -3,10 +3,10 @@ menu:
   首页: / || fas fa-home
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  清單||fa fa-heartbeat:
-    - 书籍 || /book/ || fas fa-music
-    - 美食 || /Gallery/ || fas fa-images
-    - 电影 || /movies/ || fas fa-video
+  # 清單||fa fa-heartbeat:
+  #   - 书籍 || /book/ || fas fa-music
+  #   - 美食 || /Gallery/ || fas fa-images
+  #   - 电影 || /movies/ || fas fa-video
   友联: /link/ || fas fa-link
 
 rss: /atom.xml
