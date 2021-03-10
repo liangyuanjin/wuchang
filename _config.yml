@@ -39,7 +39,7 @@ titlecase: false # Transform title into titlecase  把标题转换为单词首�
 external_link: true # Open external links in new tab 在新标签页打开链接
 filename_case: 0 # 把文件名称转换为 (1) 小写 或 (2) 大写
 render_drafts: false  # 显示为草稿
-post_asset_folder: false  # #启动 Asset 文件夹，为 true 时，每次建立文件时，Hexo 会自动建立一个与文章同名的文件夹
+post_asset_folder: true  # #启动 Asset 文件夹，为 true 时，每次建立文件时，Hexo 会自动建立一个与文章同名的文件夹
 relative_link: false # 把链接改为与根目录的相对位置
 future: true  # 显示未来的文章
 highlight:  # 代码块的设置
@@ -94,3 +94,4 @@ search:
   path: search.xml
   field: post
   content: true
+

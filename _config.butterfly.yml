@@ -44,7 +44,7 @@ fb_admins:
 fb_app_id:
 
 # 代码高亮
-highlight_theme: mac light
+highlight_theme: light
 # 代码复制支持
 highlight_copy: true
 #代码框不可展开，需点击'>'打开
@@ -195,9 +195,3 @@ gitalk:
   distractionFreeMode: false # Facebook-like distraction free mode.
   pagerDirection: last # Comment sorting direction, available values are last and first.
   createIssueManually: false # Gitalk will create a corresponding github issue for your every single page automatically
-
-footer:
-  owner:
-    enable: true
-    since: 2018
-  footer_bg: true
