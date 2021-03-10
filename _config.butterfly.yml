@@ -195,3 +195,32 @@ gitalk:
   distractionFreeMode: false # Facebook-like distraction free mode.
   pagerDirection: last # Comment sorting direction, available values are last and first.
   createIssueManually: false # Gitalk will create a corresponding github issue for your every single page automatically
+
+
+footer_bg: true
+
+beautify:
+  enable: true
+  field: site # site/post
+  title-prefix-icon: '\f0c1'
+  title-prefix-icon-color: "#F47466"
+
+# 主頁設置
+# 默認top_img全屏，site_info在中間
+# 使用默認, 都無需填寫（建議默認）
+index_site_info_top: # 主頁標題距離頂部距離  例如 300px/300em/300rem/10%
+index_top_img_height:  #主頁top_img高度 例如 300px/300em/300rem  不能使用百分比
+
+
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+
+# https://github.com/vinta/pangu.js
+# Insert a space between Chinese character and English character (中英文之間添加空格)
+pangu:
+  enable: false
+  field: post # site/post
