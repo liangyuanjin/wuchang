@@ -33,7 +33,7 @@ i18n_dir: :lang  # 国际化（i18n）
 skip_render:  # 跳过指定文件的渲染
 
 # Writing
-new_post_name: :title.md # File name of new posts # 新文章的文件名称
+new_post_name: :year/:title.md
 default_layout: post  # 预设布局
 titlecase: false # Transform title into titlecase  把标题转换为单词首字母大写
 external_link: true # Open external links in new tab 在新标签页打开链接
@@ -95,6 +95,3 @@ search:
   field: post
   content: true
 
-favicon:
-  small: https://cdn.pixabay.com/photo/2020/12/27/12/07/sunrise-5863751_1280.png
-  medium: https://cdn.pixabay.com/photo/2020/12/27/12/07/sunrise-5863751_1280.png
