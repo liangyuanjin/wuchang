@@ -2,7 +2,7 @@
 title: 二分查找
 date: 2021-03-12 17:23:48
 tags: Arithmetic
-categories: 数据结构
+categories: Arithmetic
 top_img: https://cdn.pixabay.com/photo/2021/01/05/06/40/boat-5889919_1280.png
 cover: https://cdn.pixabay.com/photo/2021/03/07/16/31/person-6076771_1280.jpg
 ---
