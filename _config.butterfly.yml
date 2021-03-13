@@ -8,8 +8,8 @@ menu:
   #   - 美食 || /Gallery/ || fas fa-images
   #   - 电影 || /movies/ || fas fa-video
   友联: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart
 
-rss: /atom.xml
 
 # Content
 excerpt_link: Read More
@@ -224,3 +224,12 @@ wordcount:
 pangu:
   enable: false
   field: post # site/post
+
+
+  #天气插件
+weather:
+  enable: true #开关
+  radius: 8 #圆角-越大越圆
+  key: b6104c0aae6742788d5d55edf4999130 #key
+
+  

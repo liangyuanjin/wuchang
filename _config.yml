@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: ❤ WuChang  # 博客标题
-subtitle: 记录关于生活的一切 ❤  # 博客副标题
+title:  WuChang  # 博客标题
+subtitle: 记录关于生活的一切  # 博客副标题
 description: 毕竟几人真鹿, 不知终日梦为鱼  # 博客的简述
 keywords: Python,Golang  # 关键字
 author: Liang Yuan Jin  # 你的名字
@@ -15,12 +15,12 @@ timezone: Asia/Shanghai  # 时区
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wuchang.online  # 文章版权信息哪里显示的URL
 root: /
+
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true
   trailing_html: true
-
 
 # Directory
 source_dir: source  # 资源文件夹
@@ -83,6 +83,19 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+# Extensions
+## Plugins: https://hexo.io/plugins/
+#RSS订阅
+plugin:
+- hexo-generator-feed
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+rss: /atom.xml
+
+# 指定主图
 theme: butterfly
 
 # Deployment
