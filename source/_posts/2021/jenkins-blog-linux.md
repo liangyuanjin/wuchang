@@ -1,7 +1,7 @@
 ---
 title: Docker 搭建 Jenkins
 date: 2021-03-09 08:31:24
-tags:
+tags: 平台搭建
 categories: Linux
 description: 技术分享
 top_img: https://cdn.pixabay.com/photo/2021/01/05/06/40/boat-5889919_1280.png
