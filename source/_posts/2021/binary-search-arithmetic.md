@@ -3,6 +3,7 @@ title: 二分查找
 date: 2021-03-12 17:23:48
 tags: Arithmetic
 categories: 数据结构
+cover: https://cdn.pixabay.com/photo/2021/03/07/16/31/person-6076771_1280.jpg
 ---
 ## 场景
 
