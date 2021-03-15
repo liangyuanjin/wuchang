@@ -45,7 +45,7 @@
       link: https://immyw.com/
       avatar: https://immyw.com/img/avatar.png
       descr: Hexo 友邻，Hexo
-        - name: Emil`s Blog
+    - name: Emil`s Blog
       link: https://blog.hvnobug.com/
       avatar: https://cdn.jsdelivr.net/gh/hvnobug/assets/common/avatar.png
       descr: Hexo 友邻，Hexo, Python, 技术
@@ -53,8 +53,6 @@
       link: https://blog.licardo.cn/
       avatar: https://blog.licardo.cn/img/avatar.png
       descr: Hexo 友邻，Hexo
-
-
 
 
 
