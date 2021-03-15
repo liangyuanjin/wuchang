@@ -2,7 +2,7 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site
+# 博客配置
 title:  WuChang  # 博客标题
 subtitle: 记录关于生活的一切  # 博客副标题
 description: 毕竟几人真鹿, 不知终日梦为鱼  # 博客的简述
@@ -10,19 +10,16 @@ keywords: Python,Golang  # 关键字
 author: Liang Yuan Jin  # 你的名字
 language: zh-CN   # 网站使用的语言
 timezone: Asia/Shanghai  # 时区
-
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wuchang.online  # 文章版权信息哪里显示的URL
 root: /
-
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true
   trailing_html: true
 
-# Directory
+# 目录配置
 source_dir: source  # 资源文件夹
 public_dir: public  # 公共文件夹
 tag_dir: tags   # 标签文件夹
@@ -32,7 +29,7 @@ code_dir: downloads/code  # Include code 文件夹
 i18n_dir: :lang  # 国际化（i18n）
 skip_render:  # 跳过指定文件的渲染
 
-# Writing
+# 写作配置
 new_post_name: :year/:title.md
 default_layout: post  # 预设布局
 titlecase: false # Transform title into titlecase  把标题转换为单词首字母大写
@@ -107,4 +104,3 @@ search:
   path: search.xml
   field: post
   content: true
-
