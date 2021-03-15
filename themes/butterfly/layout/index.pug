@@ -1,0 +1,10 @@
+extends includes/layout.pug
+
+block content
+  include ./includes/mixins/post-ui.pug
+  #recent-posts.recent-posts
+    +postUI
+    include includes/pagination.pug
+    if theme.weather.enable
+      .recent-weather(style='width:100%;height:230px')
+        include includes/weather.pug
