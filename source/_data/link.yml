@@ -20,8 +20,35 @@
     - name: Licardo
       link: https://blog.licardo.cn/
       avatar: https://blog.licardo.cn/img/avatar.png
-      descr: Hexo 友邻，Hexo, 医生
+      descr: Hexo 友邻，Hexo
 
+- class_name: Hexo大佬
+  class_desc: 向大佬学习
+  link_list:
+    - name: 框架师
+      link: https://www.mobaijun.com/
+      avatar: https://cdn.jsdelivr.net/gh/mobaijun/blog_css_js/image/avatar.jpg
+      descr: Hexo 友邻，Hexo
+    - name: itsNekoDeng
+      link: https://nekodeng.gitee.io/
+      avatar: https://nekodeng.gitee.io/medias/avatar.jpg
+      descr: Hexo 友邻，Hexo
+    - name: 海客GO
+      link: https://www.hack-gov.com.cn/
+      avatar: https://nekodeng.gitee.io/medias/avatar.jpg
+      descr: Hexo 友邻，Hexo
+    - name: 超逸の博客
+      link: https://yangchaoyi.vip/
+      avatar: https://yangchaoyi.vip/img/Chocolate.jpg
+      descr: Hexo 友邻，Hexo
+    - name: 小冰博客
+      link: https://zfe.space/
+      avatar: https://zfe.space/images/headimage.png
+      descr: Hexo 友邻，Hexo
+    - name: Jerry
+      link: https://immyw.com/
+      avatar: https://immyw.com/img/avatar.png
+      descr: Hexo 友邻，Hexo
 
 
 
