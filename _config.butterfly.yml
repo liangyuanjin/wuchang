@@ -10,10 +10,10 @@ menu:
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  清单||fa fa-heartbeat:
-    - 书籍 || /book/ || fas fa-music
-    - 美食 || /Gallery/ || fas fa-images
-    - 电影 || /movies/ || fas fa-video
+  # 清单||fa fa-heartbeat:
+  #   - 书籍 || /book/ || fas fa-music
+  #   - 美食 || /Gallery/ || fas fa-images
+  #   - 电影 || /movies/ || fas fa-video
   友联: /link/ || fas fa-link
   关于: /about/ || fas fa-heart
 
