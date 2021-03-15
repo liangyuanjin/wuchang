@@ -35,8 +35,8 @@
     - name: PixaBay
       link: https://pixabay.com/
       avatar: https://img.88icon.com/download/jpg/202005/72a3d33f4e216811700fe47f3050889a_512_512.jpg
-      descr: 中國最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+      descr: 免费图片平台
+    - name: Pexels
+      link: https://www.pexels.com/zh-cn/
+      avatar: https://cdn.pixabay.com/photo/2020/12/15/13/44/children-5833685_1280.jpg
+      descr: 免费图片平台
