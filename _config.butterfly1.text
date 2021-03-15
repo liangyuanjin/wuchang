@@ -235,3 +235,19 @@ weather:
   radius: 8 #圆角-越大越圆
   key: b6104c0aae6742788d5d55edf4999130 #key
 
+
+
+<div id="he-plugin-standard"></div>
+<script>
+WIDGET = {
+  "CONFIG": {
+    "layout": "1",
+    "width": 450,
+    "height": 150,
+    "background": "1",
+    "dataColor": "FFFFFF",
+    "key": "e60ce7e992b34a2d917d40142b973c15"
+  }
+}
+</script>
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>

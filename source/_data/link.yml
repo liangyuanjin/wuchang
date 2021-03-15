@@ -1,21 +1,40 @@
-- class_name: 友情鏈接
+- class_name: 友情链接
   class_desc: 那些人，那些事
+  link_list:
+    - name: Ningzi
+      link: https://ningzi.club
+      avatar: https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_1280.jpg
+      descr: 生活好友
+    - name: Sitoi
+      link: https://sitoi.cn/
+      avatar: https://cdn.jsdelivr.net/gh/Sitoi/Sitoi.github.io/medias/avatars/avatar.jpg
+      descr: Hexo 友邻，Python
+    - name: Nesxc
+      link: https://www.nesxc.com/
+      avatar: https://cdn-1.nesxc.com/img/avatar.gif
+      descr: Hexo 友邻, Hexo，运营
+    - name: Emil`s Blog
+      link: https://blog.hvnobug.com/
+      avatar: https://cdn.jsdelivr.net/gh/hvnobug/assets/common/avatar.png
+      descr: Hexo 友邻，Hexo, Python, 技术
+
+
+
+
+- class_name: 网站
+  class_desc: 生活中常光顾的网站
   link_list:
     - name: Hexo
       link: https://hexo.io/zh-tw/
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
       descr: 快速、簡單且強大的網誌框架
-
-- class_name: 網站
-  class_desc: 值得推薦的網站
-  link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 視頻網站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
+    - name: 豆瓣
+      link: https://www.douban.com/
+      avatar: https://img.ixintu.com/download/jpg/201912/6ed481e1b031adde50b1e168323986a7.jpg
+      descr: 社交网站
+    - name: PixaBay
+      link: https://pixabay.com/
+      avatar: https://img.88icon.com/download/jpg/202005/72a3d33f4e216811700fe47f3050889a_512_512.jpg
       descr: 中國最大社交分享平台
     - name: Twitter
       link: https://twitter.com/
