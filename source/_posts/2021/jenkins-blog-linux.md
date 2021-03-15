@@ -5,7 +5,7 @@ tags: 平台搭建
 categories: Linux
 description: 技术分享
 top_img: https://cdn.pixabay.com/photo/2021/01/05/06/40/boat-5889919_1280.png
-cover: https://user-gold-cdn.xitu.io/2020/6/24/172e537ca5ea910e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1
+cover: https://cdn.pixabay.com/photo/2021/03/04/07/31/mountains-6067150_1280.jpg
 ---
 ## 背景
 
