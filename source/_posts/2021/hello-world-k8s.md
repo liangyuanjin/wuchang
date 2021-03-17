@@ -78,4 +78,4 @@ spec:
 
 ![服务详情图](/images/k8s/Service详情图.png)
 
-> 此文章学习K8s所记，来源于[优点知识](https://youdianzhishi.com/web)
+> 此文章学习K8s所记，来源于[优点知识](https://youdianzhishi.com/web),如有侵权，联系删帖
