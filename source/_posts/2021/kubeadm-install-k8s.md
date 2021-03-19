@@ -2,6 +2,7 @@
 title: kubeadm 搭建单节点 K8s
 date: 2021-03-18 18:36:27
 tags: K8s
+categories: K8s
 description: 容器编排
 top_img: https://cdn.pixabay.com/photo/2021/01/05/06/40/boat-5889919_1280.png
 cover: /images/k8s/k8s.jpeg
