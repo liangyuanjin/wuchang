@@ -33,6 +33,7 @@ sudo vim /etc/hosts
 
 > `master` hostname `k8s-master`, `node` hostname `k8s-node...`
 
+
 ### 安装依赖
 
 ```bash
@@ -438,25 +439,3 @@ token详情如下
 
 > 虽然上面显示安装成功 dashboard 但是用浏览器打开显示不是私密链接
 ![Dashboard_ssh](/images/k8s/dashboard-ssh.png)
-
-> 出现“您的连接不是私密连接”,可以尝试在chrome浏览器打开这个页面的任何地方点击,然后键盘输入“thisisunsafe”11个字符,就可以打开了，后面会解决调这个问题。
-
-<!--
-#### 生成证书的key
-
-```bash
-openssl genrsa -out dashboard.key 2048
-```
-
-#### 生成证书请求
-
-```bash
-openssl req -days 3650 -new -out dashboard.csr -key dashboard.key -subj '/CN=172.17.0.3'
-```
-
-#### 生成自签证书
-
-```bash
-openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt
-```
-#### 创建与KubernetesDashboard 部署文件中同名的secret -->
