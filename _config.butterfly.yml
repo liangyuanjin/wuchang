@@ -960,7 +960,7 @@ CDN:
 
 #天气插件
 weather:
-  enable: true #开关
+  enable: false #开关
   radius: 8 #圆角-越大越圆
   key: e60ce7e992b34a2d917d40142b973c15 #key
 
