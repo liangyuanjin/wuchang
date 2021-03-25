@@ -13,6 +13,14 @@
       link: https://www.nesxc.com/
       avatar: https://cdn-1.nesxc.com/img/avatar.gif
       descr: Hexo 友邻, Hexo，运营
+    - name: 阳明的博客
+      link: https://www.qikqiak.com/
+      avatar: https://www.qikqiak.com/img/avatar.jpeg
+      descr: Kubernetes大佬
+    - name: 起风了
+      link: https://xuchao918.github.io/
+      avatar: https://xuchao918.github.io/images/touxiang.jpg
+      descr: Golang, Kubernetes
 
 - class_name: Hexo大佬
   class_desc: 向大佬学习
