@@ -15,7 +15,7 @@ cover: /images/k8s/k8s.jpeg
 
 ## readiness probe
 
-> `readiness probe` 来确定容器是否已经就绪，可以接收流量过来了，只有当 Pod 中的容器都处于就绪状态的时候，kubelet 才会认定该 Pod 处于就绪状态，因为一个 Pod 下可能有多个容器。
+>  `readiness probe` 来确定容器是否已经就绪，可以接收流量过来了，只有当 Pod 中的容器都处于就绪状态的时候，kubelet 才会认定该 Pod 处于就绪状态，因为一个 Pod 下可能有多个容器。
 
 ## 探针的配置方式
 
