@@ -101,3 +101,32 @@ nginx-deploy-54f57cf6bf-w9zd7      1/1     Running   0          50s   app=nginx,
 
 > `Deployment` 的 `YAML` 的配置文件中 `replicas: 3` 将会保证我们始终有 3 个 Pod 在运行
 
+## 滚动升级
+
+> `Deployment`和 `RC` 的功能大部分都一样，重点就是`滚动升级`和`回滚`, 我们将刚刚保存的`yaml`文件中的 nginx 镜像修改为`nginx:1.13.3` 然后在 `spec` 下面添加滚动升级的策略
+
+```yaml
+minReadySeconds: 5
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+```
+
+* minReadySeconds
+  * Kubernetes 在等待设置的时间后才进行升级
+
+  * 如果没有设置该值，Kubernetes 会假设该容器启动起来后就提供服务， 在某些极端情况下可能会造成服务不正常进行
+
+* maxSurge
+  * 升级过程中最多可以比原先设置多出的 Pod 数量
+
+  * maxSurge=1, replicas=5, 则表示Kubernetes 会先启动1个新的 Pod 后才删除一个旧的Pod, 整个升级过程中最多会有 5 + 1 个 Pod
+
+* maxUnavailable
+  * 升级过程中最多有多少个 Pod 处于无法提供服务的状态
+
+  * `maxSurge` 不为0时， 该值也不能为0
+
+  * `maxUnavailable=1`, 则表示Kubernetes 整个升级过程汇总最多会有1个 Pod 处于无法服务的状态
