@@ -103,6 +103,8 @@ nginx-deploy-54f57cf6bf-w9zd7      1/1     Running   0          50s   app=nginx,
 
 ## 滚动升级
 
+### 修改配置文件
+
 > `Deployment`和 `RC` 的功能大部分都一样，重点就是`滚动升级`和`回滚`, 我们将刚刚保存的`yaml`文件中的 nginx 镜像修改为`nginx:1.13.3` 然后在 `spec` 下面添加滚动升级的策略
 
 ```yaml
@@ -130,3 +132,70 @@ strategy:
   * `maxSurge` 不为0时， 该值也不能为0
 
   * `maxUnavailable=1`, 则表示Kubernetes 整个升级过程汇总最多会有1个 Pod 处于无法服务的状态
+
+修改过后文件如下
+
+```yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    k8s-app: nginx-demo
+spec:
+  replicas: 3
+  minReadySeconds: 5
+  strategy:
+    # indicate which strategy we want for rolling update
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.13.3
+        ports:
+        - containerPort: 80
+```
+
+### 升级Pod
+
+```bash
+kubectl apply -f nginx-deployment.yaml
+deployment "nginx-deploy" configured
+
+```
+
+`查看状态`
+
+```bash
+kubectl rollout status deployment/nginx-deploy
+deployment "nginx-deploy" successfully rolled out
+```
+
+`暂停升级`
+
+```bash
+kubectl rollout pause deployment <deployment>
+```
+
+`继续升级`
+
+```bash
+kubectl rollout resume deployment <deployment>
+```
+
+`查看 rs 状态`
+
+```bash
+
+```

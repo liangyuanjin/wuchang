@@ -73,7 +73,7 @@ echo 3 > /proc/sys/vm/drop_caches
 创建定时任务
 
 ```bash
-crontab -c
+crontab -e
 ```
 
 添加定时任务
