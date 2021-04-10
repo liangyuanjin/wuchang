@@ -132,7 +132,8 @@ strategy:
   * `maxSurge` 不为0时， 该值也不能为0
 
   * `maxUnavailable=1`, 则表示Kubernetes 整个升级过程汇总最多会有1个 Pod 处于无法服务的状态
-
+* revisionHistoryLimit
+  * 限制最大保留的版本数, 回滚的时候会用到
 修改过后文件如下
 
 ```yaml
@@ -146,6 +147,7 @@ metadata:
 spec:
   replicas: 3
   minReadySeconds: 5
+  revisionHistoryLimit: 15
   strategy:
     # indicate which strategy we want for rolling update
     type: RollingUpdate
@@ -170,7 +172,7 @@ spec:
 ### 升级Pod
 
 ```bash
-kubectl apply -f nginx-deployment.yaml
+kubectl apply -f nginx-deployment.yaml --record=true
 deployment "nginx-deploy" configured
 
 ```
@@ -214,7 +216,7 @@ nginx-deploy-55697f9b8b      0         0         0       5m51s
 
 ```bash
 kubectl rollout history deployment nginx-deploy
-deployment.apps/nginx-deploy 
+deployment.apps/nginx-deploy
 REVISION  CHANGE-CAUSE
 4         <none>
 5         kubectl apply --filename=./nginx-deployment.yaml --record=true
@@ -247,6 +249,13 @@ Pod Template:
 ```bash
 kubectl rollout undo deployment nginx-deploy
 deployment.apps/nginx-deploy rolled back
+```
+
+`查看回滚的状态`
+
+```bash
+kubectl rollout status deployment nginx-deploy
+deployment "nginx-deploy" successfully rolled out
 ```
 
 `回滚到指定版本`
