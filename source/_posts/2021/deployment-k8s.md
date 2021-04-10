@@ -197,5 +197,61 @@ kubectl rollout resume deployment <deployment>
 `查看 rs 状态`
 
 ```bash
+kubectl get rs
+NAME                         DESIRED   CURRENT   READY   AGE
+first-deployment-666c48b44   1         1         1       21m
+nginx-deploy-54f57cf6bf      3         3         3       19m
+nginx-deploy-55697f9b8b      0         0         0       5m51s
+```
 
+> 根据 `AGE` 这一栏信息看到离我们最近的当前状态是:3, 和我们 YAML 文件配置的是一致的，说明升级成功了
+
+### 回滚
+
+> 上面已经能够平滑的升级我们的 `Deployment`, 如果升级后我们想要回滚到之前的版本呢, `Deployment` 也为我们提供了回滚机制。
+
+`查看升级历史`
+
+```bash
+kubectl rollout history deployment nginx-deploy
+deployment.apps/nginx-deploy 
+REVISION  CHANGE-CAUSE
+4         <none>
+5         kubectl apply --filename=./nginx-deployment.yaml --record=true
+
+```
+
+> 所有通过 `kubectl xxx --record` 都会被 `kubernetes` 记录到 `etcd` 进行持久化，这会占用系统资源，还有就是时间久了，使用 `kubectl get rs` 会有很多个没有用的 `RS` 返回给你， 所以在生产时，通过设置 `Deployment`的 `.spec.revisionHistoryLimit` 来限制最大保留的版本数，因为通常我们只会回滚到最近的几个版本，`rollout history` 中记录的 `revision` 和 `ReplicaSet` 一一对应，如果手动的删除某个`ReplicaSet` 对应的 `rollout history` 就会被删除。
+
+`查看单个 revison`信息
+
+```bash
+kubectl rollout history deployment nginx-deploy --revision=4
+deployment.apps/nginx-deploy with revision #4
+Pod Template:
+  Labels:       app=nginx
+        pod-template-hash=55697f9b8b
+  Containers:
+   nginx:
+    Image:      nginx:1.13.3
+    Port:       80/TCP
+    Host Port:  0/TCP
+    Environment:        <none>
+    Mounts:     <none>
+  Volumes:      <none>
+
+```
+
+`直接回滚到当前版本的前一个版本`
+
+```bash
+kubectl rollout undo deployment nginx-deploy
+deployment.apps/nginx-deploy rolled back
+```
+
+`回滚到指定版本`
+
+```bash
+kubectl rollout undo deployment nginx-deploy --to-revision=5
+deployment.apps/nginx-deploy rolled back
 ```
