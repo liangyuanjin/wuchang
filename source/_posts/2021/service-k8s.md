@@ -34,3 +34,100 @@ cover: /images/k8s/k8s.jpeg
 #### Cluster IP
 
 > `Cluster IP` 是一个虚拟IP, 仅仅作用于 `Kubernetes Service` 这个对象， 由`Kubernetes` 自己进行管理和分配地址，无法ping这个地址。
+
+### 定义Service
+
+> `Service` 的定义方式和我们之前定义的各种资源对象方式类似，我们有一组 `Pod`， 对外暴露的端口是 `8080`, 同时都被打上了 `app=myapp` 的标签，那么我们可以定义出下面的 `YAML`文件
+
+`Pod` 定义
+
+```yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    k8s-app: nginx-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+          name: nginxweb
+```
+
+`Service` 定义
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myservice
+spec:
+  selector:
+    app: nginx
+  ports:
+  - name: mynginx-http
+    protocol: TCP
+    port: 80
+    targetPort: nginxweb
+```
+
+### 创建 Service 对象
+
+```bash
+kubectl apply -f nginx-deploy.yaml
+deployment.apps/nginx-deploy created
+
+kubectl apply -f myservice.yaml
+service/myservice created
+```
+
+> `myservice`的 `Service` 对象，他会将请求代理到使用 TCP 端口为 8080,同时具有标签 `app=myapp` 的`Pod`上，同时会被系统分配一个 `Cluster IP`, 而且`Service` 还会持续的监听 `selector` 下面的 `Pod`, 这些`Pod`的集合都被收集到 `myservice` 的 `Endpoints`对象上去
+
+### 查看Service 对象
+
+```bash
+kubectl get svc
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes         ClusterIP   10.96.0.1       <none>        443/TCP        4m52s
+myservice          ClusterIP   10.100.215.23   <none>        80/TCP         90s
+```
+
+### 查看Service 详细
+
+```bash
+kubectl describe svc myservice
+Name:              myservice
+Namespace:         default
+Labels:            <none>
+Annotations:       kubectl.kubernetes.io/last-applied-configuration:
+                     {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"myservice","namespace":"default"},"spec":{"ports":[{"name":"myngi...
+Selector:          app=nginx
+Type:              ClusterIP
+IP:                10.96.132.1
+Port:              mynginx-http  80/TCP
+TargetPort:        nginxweb/TCP
+Endpoints:         172.18.0.6:80,172.18.0.7:80,172.18.0.8:80
+Session Affinity:  None
+```
+
+> 可以看到 `Endpoints` 上已经收集了符合规则的`Pod`集合, TargetPort 可以是端口，也可以设置成一个字符串
+
+### 验证访问 Service
+
+```bash
+kubectl run -it testservice --image=busybox /bin/bash
+```
