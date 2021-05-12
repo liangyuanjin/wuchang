@@ -219,3 +219,105 @@ if __name__ == "__main__":
 * `feed.Schedule.speakers，仍是列表`, `如果里面的元素是映射，会转换成 FrozenJSON 对象`
 * 读取不存在的属性会抛出 `KeyError`, 而不是通常抛出的 `AttributeError`
 
+### 处理无效属性名
+
+`关键字冲突`
+
+> `FrozenJSON` 类有一个缺陷, 没有对名称为 Python 关键字的属性做特殊处理, 比如下面 `grad.class` 是无法读取的, 因为 class 是保留字, 可以用 `geattr(grad, "class")`, 但是 `FrozenJSON` 是为了方便访问数据, 更好的解决方法是 `ForzenJSON.__init__` 方法的映射中做处理，如果有的话在键名后面加上 `_` 然后通过 `grad.class_` 读取
+
+```python
+grad = FrozenJSON({"name": "Jim Bo", "class": 1982})
+print(grad.class)
+```
+
+```python
+class FrozenJSON:
+    """
+    一个只读接口，使用属性表示法表示访问JSON类对象
+    """
+
+    def __init__(self, mapping):
+        self.__data = dict(mapping)
+        for key, value in mapping.items():
+            if keyword.iskeyword(key):
+                key += "_"
+                self.__data[key] = value
+
+    def __getattr__(self, name):
+        if hasattr(self.__data, name):
+            return getattr(self.__data, name)
+        return FrozenJSON.build(self.__data[name])
+
+    @classmethod
+    def build(cls, obj):
+        if isinstance(obj, Dict):
+            return cls(obj)
+        elif isinstance(obj, List):
+            return [cls.build(item) for item in obj]
+        return obj
+```
+
+`无效标识符`
+
+> 如果JSON对象的键不是`有效的Python标识符`，也会遇到无效属性名, 这种问题Python3中易于检测, str 类提供了 `s.isidentifier()`, 一般处理无效标识符是抛出异常，或者替换成同一的通用名称
+
+```python
+class FrozenJSON:
+    """
+    一个只读接口，使用属性表示法表示访问JSON类对象
+    """
+
+    def __init__(self, mapping):
+        self.__data = dict(mapping)
+        for key, value in mapping.items():
+            if keyword.iskeyword(key):
+                key += "_"
+                self.__data[key] = value
+            if not key.isidentifier():
+                raise ValueError()
+
+x = FrozenJSON({'2be':'or not'})
+print(x.2be)
+```
+
+> `FrozenJSON` 类的另一个重要功能, `build` 逻辑, 这个方法把嵌套结构转换成 `FrozenJSON` 实例或者 `FrozenJSON` 实例列表, `__getattr__` 方法访问属性时， 能为不同的值返回不同类型的对象
+
+### 使用 __new__ 方法以灵活的方式创建对象
+
+> Python 中 `__init__` 称为`构造方法`, 是从其他语言借鉴过来的, 但是用于`构建实例的是特殊方法__new__`, 是一个`特殊的类方法`(不必使用@classmethod装饰器), 必须返回一个实例, 返回的实例作为第一个参数(self) 传给 `__init__`方法, `__init__`方法要传入实例, 禁止返回任何值,`__init__`方法其实是 `初始化方法`, 真正的构造方法是 `__new__`。
+
+```python
+class FrozenJSON:
+    """
+    一个只读接口, 使用属性表示访问JSON类对象
+    """
+    def __new__(cls, arg):
+        if isinstance(arg, Dict):
+            return super().__new__(cls)
+        elif isinstance(arg, List):
+            return [cls(item) for item in arg]
+        else:
+            return arg
+
+    def __init__(self, mapping):
+        self.__data = {}
+        for key, value in mapping.items():
+            if iskeyword(key):
+                key += "_"
+            self.__data[key] = value
+
+    def __getattr__(self, name):
+        if hasattr(self.__data, name):
+            return getattr(self.__data, name)
+        return FrozenJSON(self.__data[name])
+```
+
+* `__new__` 是类方法, 第一个参数是类本身, 余下的参数与 `__init__` 方法一样, 只不过没有 `self`
+* `return super().__new__(cls)` 默认行文是委托给超类的 `__new__`方法, 这里调用的是object 基类的 `__new__`方法, 把唯一参数设为 `FrozenJSON`
+* 之前调用的是 `FrozenJSON.build`方法，现在只需要调用 `FrozenJSON` 构造方法
+
+> `__new__`方法的第一个参数是类, 创建的对象是那个类的实例, 在 `FrozenJSON.__new__`方法中, `super().__new__(cls)` 表达式会调用 `object.__new__(FrozenJSON)`, 而 object 类构建的实例是`FrozenJSON`实例, 实例的 `__class__`属性存储的是 `FrozenJSON`类的引用,真正的构建操作是由解释器C语言实现的的 `object.__new__` 方法执行的
+
+## 使用shelve模块调整JSON数据源的结构
+
+> `JSON`数据源有一个明显的缺点, 如果索引为 40 的事件, 有两位演讲者, 3471和5199, 但是却不容易找到他们，因为提供的是编号，而 Schedule.speakers 列表没有使用编号建立索引, 每对象中都有 venue_serial 字段，存储的值也是编号，如果想要找到相应的记录，就要执行线性搜索列表。
