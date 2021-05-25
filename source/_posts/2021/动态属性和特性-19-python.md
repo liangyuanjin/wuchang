@@ -321,3 +321,17 @@ class FrozenJSON:
 ## 使用shelve模块调整JSON数据源的结构
 
 > `JSON`数据源有一个明显的缺点, 如果索引为 40 的事件, 有两位演讲者, 3471和5199, 但是却不容易找到他们，因为提供的是编号，而 Schedule.speakers 列表没有使用编号建立索引, 每对象中都有 venue_serial 字段，存储的值也是编号，如果想要找到相应的记录，就要执行线性搜索列表。
+
+> 标砖库中有个`shelve(架子)模块`, `shelve` 模块提供了 `pickle` 存储方式
+
+> shelve.open 高阶函数返回一个 `shelve.Shelf` 实例， 这是简单的健值对象数据库，背后由 `dbm` 模块支持
+
+* shelve.Shelf 是 abc.MutableMapping 的子类， 因此提供了处理映射类型的重要方法
+
+* shelve.Shelf 类还提供了几个管理 I/O 的方法， 如 Sync 和 close; 它也是一个上下文管理器
+
+* 只要高新值赋予键，就会保存键和值
+
+* 键必须是字符串
+
+* 值必须是 pickle 模块能处理的对象
