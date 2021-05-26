@@ -81,3 +81,51 @@ cover: https://cdn.pixabay.com/photo/2020/04/02/22/09/santorini-4996846_1280.jpg
 
 #### Redis 不可以做什么
 
+* `数据规模的角度`, 数据可以大规模数据和小规模数据，数据存放在内存中，数据量很大的话，`经济成本很高`
+* `数据的冷热角度`, Redis 通常存放热数据, 不适宜存放冷数, 存放大量的冷数据其实是对内存的一种浪费
+
+### 1.4 安装 Redis
+
+#### Linux 安装
+
+> Redis在 Linux 安装通常有两种方式, 第一种是通过操作系统的软件相对较快，但是缺点是不一定能更新到最新的版本，Redis 安装方式并不负载，一般推荐源码进行安装
+
+```shell
+wget http://download.redis.io/releases/redis-3.0.7.tar.gz
+tar xzf redis-3.0.7.tar.gz
+ln -s redis-3.0.7 redis
+cd redis
+make
+make install
+```
+
+> 在上面安装中，建立了一个redis的目录的软连， 这样做是为了不把 redis 目录固定在指定版本上, 有利于 Redis 未来版本升级,Redis 的安装是将 Redis 的相关运行文件放在 `/usr/local/bin` 下
+
+#### 配置、启动、操作、关闭Redis
+
+> Redis 安装之后， src和/usr/local/bin 目录下多了几个以 redis 开头的可执行文件，称为 Redis Shell， 这些 Shell 文件可以做很多事，启动、停止、检测和修复Redis持久化文件、检测Redis的性能
+
+|  可执行文件   | 作用  |
+|  ----  | ----  |
+| redis-server  | 启动Redis |
+| redis-cli  | Redis 命令行客户端 |
+| redis-benchmark  | Redis 基准测试工具 |
+| redis-check-aof | Redis AOF 持久化文件检测和修复工具 |
+| redis-check-dump  | Redis RDB 持久化文件检测和修复工具 |
+
+##### 启动Redis
+
+> Redis 有三种方法启动 Redis: 默认配置、运行配置、配置文件启动
+**默认配置**
+
+* 这种方式会使用Redis默认配置来启动文件， 然后输出相关日志, 执行 `redis-server` 后输出相关日志
+**运行启动**
+* `redis-server` 加上要修改的配置名和值(可以是多对), 没有设置的配置将使用默认配置
+
+```shell
+redis-server --configKey1 configValue1 --configKey2 configValue2
+# 例如要用 6380 作为端口启动 Redis 可以执行如下
+redis-server --port 6380
+```
+
+> 虽然运行配置可以自定义配置, 但是如果需要修改的配置文件较多或者希望将配置保存到文件中，不建议使用这种方式
