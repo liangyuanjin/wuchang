@@ -129,3 +129,39 @@ redis-server --port 6380
 ```
 
 > 虽然运行配置可以自定义配置, 但是如果需要修改的配置文件较多或者希望将配置保存到文件中，不建议使用这种方式
+**配置文件启动**
+
+* 将配置文件写到执行的文件中, 例如将配置文件写到 `/opt/redis/redis.conf` 中，以下面的启动方式启动即可
+
+```shell
+redis-server /opt/redis/redis.conf
+```
+
+> 下面是一些 redis 的重要配置
+
+|  配置名   | 配置说明  |
+|  ----   | ----  |
+|  port   | 端口  |
+|  logfile   | 日志文件  |
+|  dir   | Redis 工作目录(存放持久化文件和日志文件)  |
+|  daemonize   | 是否以守护进程的方式启动Redis  |
+
+> Redis 目录下都有有一个 redis.conf 配置文件，就是 Redis 默认配置，配置文件不是完全手写的，而是将redis.conf 作为模版进行修改
+
+##### Redis 命令行客户端
+
+> 已经启动的 Redis 可以通过 redis-cli 连接，操作Redis服务，redis-cli 可以使用两种服务连接Redis服务器
+**交互式方式**
+> 通过 `redis-cli-h{host} -p {port}` 的方式连接到Redis服务
+
+```shell
+redis-cli -h 127.0.0.1 -p 6379
+```
+
+**命令方式**
+> `redis-cli-h ip{host} -p{port} {command}`, 就可以直接得到命令行的返回结果
+
+```shell
+redis-cli -h 127.0.0.1 -p 6379 get hello
+"world"
+```
